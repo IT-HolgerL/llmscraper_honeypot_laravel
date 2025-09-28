@@ -1,0 +1,1 @@
+Real htaccess is located under G:\Workspace\.htaccess
