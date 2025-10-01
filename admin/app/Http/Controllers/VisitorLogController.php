@@ -108,7 +108,7 @@ class VisitorLogController extends Controller
     {
         Log::debug('Creating file for download');
         $data = Visitorlog::all();
-        $filePath = public_path() . "\\downloads\\logs.csv";
+        $filePath = public_path() . env('CSV_Download_Path', '/downloads/logs.csv');
         Log::info('Try to open file in ' . $filePath);
         $file = fopen($filePath, 'w');
 

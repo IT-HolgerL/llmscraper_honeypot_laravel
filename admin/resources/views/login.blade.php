@@ -7,6 +7,7 @@
             <input type="password" name="password" placeholder="Password" required>
             <input type="submit" value="Login">
         </form>
+        <h4>Environment {{ env('APP_ENV') }}</h4>
     </div>
 
 </x-layouts.app>
