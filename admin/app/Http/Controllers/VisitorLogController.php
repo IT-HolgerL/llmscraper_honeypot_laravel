@@ -7,14 +7,17 @@ use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 
 class VisitorLogController extends Controller
 {
     public function index()
     {
+        Log::debug('Accessing visitor logs');
         try {
-            $Visitorlogs = Visitorlog::all();
+            $Visitorlogs = Visitorlog::all()->sortBy('created_at');
         } catch (Exception $e) {
             return response()->json([
                 'data' => [],
@@ -100,5 +103,26 @@ class VisitorLogController extends Controller
             'data' => $Visitorlogs,
             'message' => 'Succeed'
         ], JsonResponse::HTTP_OK);
+    }
+    public function downloadCSV(): BinaryFileResponse
+    {
+        Log::debug('Creating file for download');
+        $data = Visitorlog::all();
+        $filePath = public_path() . "\\downloads\\logs.csv";
+        Log::info('Try to open file in ' . $filePath);
+        $file = fopen($filePath, 'w');
+
+        $dataArray = $data->toArray();
+        $headers = array_keys((array) $dataArray[0]); // Get the column headers from the first row
+        fputcsv($file, $headers);
+
+        foreach ($dataArray as $row) {
+            fputcsv($file, $row, );
+        }
+        fclose($file);
+        $headers = [
+            'Content-Type' => 'application/csv',
+        ];
+        return response()->download($filePath, 'logs.csv', $headers);
     }
 }

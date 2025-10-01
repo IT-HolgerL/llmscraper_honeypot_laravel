@@ -44,7 +44,10 @@
 <body>
 
     <h1>Log Einträge</h1>
-
+    <form action="./api/visitorlog/downloadCSV" method="get">
+        @csrf
+        <input type="submit" value="Download as CSV">
+    </form>
     <table>
         <thead>
             <tr>

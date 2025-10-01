@@ -12,8 +12,10 @@ Route::get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'visitorlog'], function () {
     Route::get('/', [VisitorLogController::class, 'index']);
+    Route::get('/downloadCSV', [VisitorLogController::class, 'downloadCSV']);
     Route::get('/{id}', [VisitorLogController::class, 'show']);
     Route::post('/', [VisitorLogController::class, 'store']);
+
     Route::put('/{id}', [VisitorLogController::class, 'update']);
     Route::delete('/{id}', [VisitorLogController::class, 'destroy']);
 });
