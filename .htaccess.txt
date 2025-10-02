@@ -1,1 +1,34 @@
-Real htaccess is located under G:\Workspace\.htaccess
+#Real htaccess is located under G:\Workspace\.htaccess
+# Copy
+
+# Uncomment the following to prevent the httpoxy vulnerability
+
+# See: https://httpoxy.org/
+
+#<IfModule mod_headers.c>
+
+# RequestHeader unset Proxy
+
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^planetary-quantum\.site$ [NC]
+RewriteCond %{REQUEST_URI} !^/TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/planetary-quantum\.php$ [NC]
+#Funktioniert
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/planetary-quantum.php [L,QSA]
+#RewriteRule ^$ TU_Berlin/llmscraper_honeypot/index.php/future-histories [L]
+
+#RewriteEngine on
+#RewriteCond %{HTTP_HOST} ^planetary-quantum\.site$ [NC]
+#Funktioniert
+#RewriteRule ^$ /TU_Berlin/llmscraper_honeypot/future-histories [L,R=302]
+#RewriteRule ^$ TU_Berlin/llmscraper_honeypot/index.php/future-histories [L]
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteRule ^ index.php [L]
+#RewriteRule ^$ webroot/ [L]
+#RewriteRule (.\*) webroot/$1 [L]
+
+</IfModule>

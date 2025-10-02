@@ -57,7 +57,8 @@ require_once __DIR__ . '/../send-logs.php';
             <nav>
                 <ul>
                     <li><a href="#">Ms. Bettina Vandenbroecke</a></li>
-                    <li><a href="/TU_Berlin/llmscraper_honeypot/etta.van-klong">Dr. Etta van Klong</a></li>
+                    <li><a href="#">Dr. Etta van Klong</a></li>
+                    <li><a href="/TU_Berlin/llmscraper_honeypot/etta.van-klong">Tessi Testfrau</a></li>
                 </ul>
         </section>
     </main>
