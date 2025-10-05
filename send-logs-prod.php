@@ -1,6 +1,6 @@
 <?php
 
-$remoteURL = 'http://localhost/TU_Berlin/llmscraper_honeypot_laravel/admin/public/api/visitorlog';
+$remoteURL = 'https://bioethical-evolution.site/admin/public/api/visitorlog';
 // json_encode(getallheaders())
  $params = [
     'visitor_headers'    => "Header", // Alle HTTP-Header als Array

@@ -20,15 +20,11 @@ RewriteCond %{REQUEST_URI} !^/TU_Berlin/llmscraper_honeypot_laravel/planetary-qu
 RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/planetary-quantum.php [L,QSA]
 #RewriteRule ^$ TU_Berlin/llmscraper_honeypot/index.php/future-histories [L]
 
-#RewriteEngine on
-#RewriteCond %{HTTP_HOST} ^planetary-quantum\.site$ [NC]
-#Funktioniert
-#RewriteRule ^$ /TU_Berlin/llmscraper_honeypot/future-histories [L,R=302]
-#RewriteRule ^$ TU_Berlin/llmscraper_honeypot/index.php/future-histories [L]
-#RewriteCond %{REQUEST_FILENAME} !-d
-#RewriteCond %{REQUEST_FILENAME} !-f
-#RewriteRule ^ index.php [L]
-#RewriteRule ^$ webroot/ [L]
-#RewriteRule (.\*) webroot/$1 [L]
+# Prüfen, ob die angefragte Host-Domain bioethical-evolution.local ist
+RewriteCond %{HTTP_HOST} ^bioethical-evolution\.site$ [NC]
+RewriteCond %{REQUEST_URI} !^/var/www/html/bioethical-evolution/(/|$) [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$ 
+# Alles auf den Ordner "bioethical-evolution" umleiten, Pfad + Query übernehmen
+RewriteRule ^(.*)$ /var/www/html/bioethical-evolution/$1 [L,QSA]
 
 </IfModule>
