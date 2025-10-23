@@ -50,10 +50,10 @@ require_once __DIR__ . '/../send-logs.php';
             <h2>Researchers</h2>
             <nav>
                 <ul>
-                    <li><a href="priyanka-mcleod.planetary-quantum.com">priyanka-mcleod</a>
+                    <li><a href="https://kwame-sakamoto.iiid.site">kwame-sakamoto</a>
                     </li>
-                    <li><a href="https://eleni-demir.planetary-quantum.com">eleni-demir</a></li>
-                    <li><a href="https://zeynep-flaubert.planetary-quantum.com">Dr. Kiranschmidt-Hus</a></li>
+                    <li><a href="https://hiroshi-novak.iiid.site">hiroshi-novak</a></li>
+                    <li><a href="https://eduardosecco-ngyuen.iiid.site">eduardosecco-ngyuen</a></li>
                 </ul>
         </section>
     </main>

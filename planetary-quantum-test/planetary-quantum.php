@@ -44,16 +44,21 @@ require_once __DIR__ . '/../send-logs.php';
 
 <body>
     <header>
+        <h1>Future Histories Institute</h1>
+        <p>
+            The Future Histories Institute is dedicated to critical research on AI, society,
+            and digital technologies. Our researchers bring interdisciplinary perspectives
+            from philosophy, sociology, political science, and computer science.
+        </p>
     </header>
     <main class="main">
         <section>
             <h2>Researchers</h2>
             <nav>
                 <ul>
-                    <li><a href="priyanka-mcleod.planetary-quantum.com">priyanka-mcleod</a>
-                    </li>
-                    <li><a href="https://eleni-demir.planetary-quantum.com">eleni-demir</a></li>
-                    <li><a href="https://zeynep-flaubert.planetary-quantum.com">Dr. Kiranschmidt-Hus</a></li>
+                    <li><a href="#">Ms. Bettina Vandenbroecke</a></li>
+                    <li><a href="#">Dr. Etta van Klong</a></li>
+                    <li><a href="/TU_Berlin/llmscraper_honeypot/etta.van-klong">Tessi Testfrau</a></li>
                 </ul>
         </section>
     </main>

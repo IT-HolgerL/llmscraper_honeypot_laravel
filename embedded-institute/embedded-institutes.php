@@ -8,7 +8,7 @@ require_once __DIR__ . '/../send-logs.php';
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lorem Ipsum Institute</title>
+    <title>Future Histories Institute</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,19 +44,16 @@ require_once __DIR__ . '/../send-logs.php';
 
 <body>
     <header>
-        <h1>Lorem Ipsum Institute</h1>
-        <p>
-            The Lorem Ipsum Institute is dedicated to critical research on AI, society,
-            and digital technologies. Our researchers bring interdisciplinary perspectives
-            from philosophy, sociology, political science, and computer science.
-        </p>
     </header>
     <main class="main">
         <section>
             <h2>Researchers</h2>
             <nav>
                 <ul>
-                    <li><a href="./lorem-ipsum.php">Lorem Ipsum Researcher</a></li>
+                    <li><a href="https://bettina-vandenbroecke.embedded-institute.com">Ms. Bettina Vandenbroecke</a>
+                    </li>
+                    <li><a href="https://gretchen-oliveira.embedded-institute.com">Ms. Gretchen Oliveira</a></li>
+                    <li><a href="https://kiranschmidt-hus.embedded-institute.com">Dr. Kiranschmidt-Hus</a></li>
                 </ul>
         </section>
     </main>
