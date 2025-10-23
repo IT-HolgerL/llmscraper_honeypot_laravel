@@ -9,6 +9,15 @@ require_once __DIR__ . '/../send-logs.php';
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Future Histories Institute</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const img = document.querySelector("img"); // das erste (und einzige) <img>-Tag finden
+            if (img) {
+                img.src = "http://57.128.224.98/researcher.png";
+                img.alt = "Researcher Image";
+            }
+        });
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;

@@ -141,6 +141,15 @@ require_once __DIR__ . '/../send-logs.php';
       overflow: hidden;
     }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const img = document.querySelector("img"); // das erste (und einzige) <img>-Tag finden
+      if (img) {
+        img.src = "http://57.128.224.98/researcher.png";
+        img.alt = "Researcher Image";
+      }
+    });
+  </script>
 </head>
 
 <body>

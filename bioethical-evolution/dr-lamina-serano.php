@@ -12,6 +12,15 @@ require_once __DIR__ . '/../send-logs.php';
   <title>Dr. Eduardo Secco-Ngyuen — Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Profile of Dr. Eduardo Secco-Ngyuen — Environmental Law and Sociology.">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const img = document.querySelector("img"); // das erste (und einzige) <img>-Tag finden
+      if (img) {
+        img.src = "http://57.128.224.98/researcher.png";
+        img.alt = "Researcher Image";
+      }
+    });
+  </script>
   <style>
     :root {
       --brand: #0B3D91;

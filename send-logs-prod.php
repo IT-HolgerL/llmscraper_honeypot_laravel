@@ -1,22 +1,23 @@
 <?php
 
-$remoteURL = 'https://bioethical-evolution.site/admin/public/api/visitorlog';
-// json_encode(getallheaders())
- $params = [
-    'visitor_headers'    => "Header", // Alle HTTP-Header als Array
-    'ip_address'         => $_SERVER['REMOTE_ADDR'] ?? 'Unbekannt',
-    'path'               => $_SERVER['REQUEST_URI'] ?? 'Unbekannt',
-    'tlsVersion'        => $_SERVER['SSL_PROTOCOL'] ?? 'Unbekannt',
-    'user_agent'         => $_SERVER['HTTP_USER_AGENT'] ?? 'Unbekannt',
-    'language'            => $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'Unbekannt',
-    'referrer'           => $_SERVER['HTTP_REFERER'] ?? 'Kein Referrer',
-    'browser_fingerprint'=> hash('sha256', 
-                                ($_SERVER['HTTP_USER_AGENT'] ?? '') .
-                                ($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '') .
-                                ($_SERVER['REMOTE_ADDR'] ?? '') .
-                                ($_SERVER['HTTP_ACCEPT_ENCODING'] ?? '') .
-                                ($_SERVER['HTTP_ACCEPT'] ?? '')
-                             ),
+$remoteURL = 'https://embedded-institute.com/admin/public/api/visitorlog';
+$headers = json_encode(getallheaders());
+$params = [
+    'visitor_headers' => $headers, // Alle HTTP-Header als Array
+    'ip_address' => $_SERVER['REMOTE_ADDR'] ?? 'Unbekannt',
+    'path' => $_SERVER['REQUEST_URI'] ?? 'Unbekannt',
+    'tlsVersion' => $_SERVER['SSL_PROTOCOL'] ?? 'Unbekannt',
+    'user_agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'Unbekannt',
+    'language' => $_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? 'Unbekannt',
+    'referrer' => $_SERVER['HTTP_REFERER'] ?? 'Kein Referrer',
+    'browser_fingerprint' => hash(
+        'sha256',
+        ($_SERVER['HTTP_USER_AGENT'] ?? '') .
+        ($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? '') .
+        ($_SERVER['REMOTE_ADDR'] ?? '') .
+        ($_SERVER['HTTP_ACCEPT_ENCODING'] ?? '') .
+        ($_SERVER['HTTP_ACCEPT'] ?? '')
+    ),
 ];
 
 $defaults = array(

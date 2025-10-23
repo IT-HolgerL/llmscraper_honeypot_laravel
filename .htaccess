@@ -1,0 +1,45 @@
+#Real htaccess is located under G:\Workspace\.htaccess
+# Copy
+
+# Uncomment the following to prevent the httpoxy vulnerability
+
+# See: https://httpoxy.org/
+
+#<IfModule mod_headers.c>
+
+# RequestHeader unset Proxy
+
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+# ==========================
+# Domain: planetary-quantum.site
+# ==========================
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^planetary-quantum\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/robots.txt [L,END]
+
+# --- Haupt-Redirect: alles (außer wenn bereits die PHP-Datei angefragt wurde) ---
+RewriteCond %{HTTP_HOST} ^planetary-quantum\.site$ [NC]
+# Wenn der Browser die PHP-Datei direkt angefordert hat (Original-Request), NICHT umschreiben
+RewriteCond %{THE_REQUEST} !planetary-quantum\.php [NC]
+# Wenn die Anfrage nicht bereits eine interne Rewrite-Antwort ist (safeguard)
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/planetary-quantum.php [L,QSA,END]
+
+# --- Subdomain: priyanka-mcleod ---
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^priyanka-mcleod\.planetary-quantum\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^priyanka-mcleod\.planetary-quantum\.site$ [NC]
+RewriteCond %{THE_REQUEST} !dr-priyanka-mcleod\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/dr-priyanka-mcleod.php [L,QSA,END]
+
+
+
+
+</IfModule>

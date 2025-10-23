@@ -1,0 +1,282 @@
+#Real htaccess is located under G:\Workspace\.htaccess
+# Copy
+
+# Uncomment the following to prevent the httpoxy vulnerability
+
+# See: https://httpoxy.org/
+
+#<IfModule mod_headers.c>
+
+# RequestHeader unset Proxy
+
+#</IfModule>
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+# ==========================
+# Domain: planetary-quantum.site
+# ==========================
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^planetary-quantum\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/robots.txt [L,END]
+
+# --- Haupt-Redirect: alles (außer wenn bereits die PHP-Datei angefragt wurde) ---
+RewriteCond %{HTTP_HOST} ^planetary-quantum\.site$ [NC]
+# Wenn der Browser die PHP-Datei direkt angefordert hat (Original-Request), NICHT umschreiben
+RewriteCond %{THE_REQUEST} !planetary-quantum\.php [NC]
+# Wenn die Anfrage nicht bereits eine interne Rewrite-Antwort ist (safeguard)
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/planetary-quantum.php [L,QSA,END]
+
+# --- Subdomain: priyanka-mcleod ---
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^priyanka-mcleod\.planetary-quantum\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^priyanka-mcleod\.planetary-quantum\.site$ [NC]
+RewriteCond %{THE_REQUEST} !dr-priyanka-mcleod\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/dr-priyanka-mcleod.php [L,QSA,END]
+
+# ==========================
+# Domain: embedded-institute.com
+# ==========================
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^embedded-institute\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/robots.txt [L,END]
+
+# --- Haupt-Redirect: alles (außer wenn bereits die PHP-Datei angefragt wurde) ---
+RewriteCond %{HTTP_HOST} ^embedded-institute\.com$ [NC]
+RewriteCond %{THE_REQUEST} !embedded-institutes\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/embedded-institutes.php [L,QSA,END]
+
+# --- Subdomain: gretchen-oliveira ---
+RewriteCond %{HTTP_HOST} ^gretchen-oliveira\.embedded-institute\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^gretchen-oliveira\.embedded-institute\.com$ [NC]
+RewriteCond %{THE_REQUEST} !gretchen-oliveira-m-p-a\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/gretchen-oliveira-m-p-a.php [L,QSA,END]
+
+# --- Subdomain: bettina-vandenbroecke ---
+RewriteCond %{HTTP_HOST} ^bettina-vandenbroecke\.embedded-institute\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^bettina-vandenbroecke\.embedded-institute\.com$ [NC]
+RewriteCond %{THE_REQUEST} !ms-bettina-vandenbroecke\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/ms-bettina-vandenbroecke.php [L,QSA,END]
+
+# --- Subdomain: kiranschmidt-hus ---
+RewriteCond %{HTTP_HOST} ^kiranschmidt-hus\.embedded-institute\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^kiranschmidt-hus\.embedded-institute\.com$ [NC]
+RewriteCond %{THE_REQUEST} !dr-kiran-schmidt-hus\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/dr-kiran-schmidt-hus.php [L,QSA,END]
+
+# --- Subdomain: allira-lu ---
+RewriteCond %{HTTP_HOST} ^allira-lu\.embedded-institute\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^allira-lu\.embedded-institute\.com$ [NC]
+RewriteCond %{THE_REQUEST} !allira-lu\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/embedded-institute/allira-lu.php [L,QSA,END]
+
+# ==========================
+# Domain: future-histories.site
+# ==========================
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^future-histories\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/future-histories-institutes/robots.txt [L,END]
+
+# --- Haupt-Redirect: alles (außer wenn bereits die PHP-Datei angefragt wurde) ---
+RewriteCond %{HTTP_HOST} ^future-histories\.site$ [NC]
+RewriteCond %{THE_REQUEST} !future-histories-institutes\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/future-histories-institutes/future-histories-institutes.php [L,QSA,END]
+
+# --- Subdomain: felicity-el-ghazali ---
+RewriteCond %{HTTP_HOST} ^felicity-el-ghazali\.future-histories\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/future-histories-institutes/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^felicity-el-ghazali\.future-histories\.site$ [NC]
+RewriteCond %{THE_REQUEST} !felicity-el-ghazali\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/future-histories-institutes/felicity-el-ghazali.php [L,QSA,END]
+
+# --- Subdomain: etta-van-klong ---
+RewriteCond %{HTTP_HOST} ^etta-van-klong\.future-histories\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/future-histories-institutes/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^etta-van-klong\.future-histories\.site$ [NC]
+RewriteCond %{THE_REQUEST} !dr-etta-van-klong\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/future-histories-institutes/dr-etta-van-klong.php [L,QSA,END]
+
+# --- Subdomain: louisa-yang ---
+RewriteCond %{HTTP_HOST} ^louisa-yang\.future-histories\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/future-histories-institutes/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^louisa-yang\.future-histories\.site$ [NC]
+RewriteCond %{THE_REQUEST} !louisa-yang\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/future-histories-institutes/louisa-yang.php [L,QSA,END]
+
+# --- Special case: future-histories.site/tieraluzia-ding ---
+RewriteCond %{HTTP_HOST} ^future-histories\.site$ [NC]
+RewriteCond %{REQUEST_URI} ^/tieraluzia-ding
+RewriteCond %{THE_REQUEST} !tiera-luzia-ding\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^tieraluzia-ding(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/future-histories-institutes/tiera-luzia-ding.php [L,QSA,END]
+
+# ==========================
+# Domain: comparative-theologies.com
+# ==========================
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^comparative-theologies\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/comparative-technologies/robots.txt [L,END]
+
+# --- Haupt-Redirect: alles (außer wenn bereits die PHP-Datei angefragt wurde) ---
+RewriteCond %{HTTP_HOST} ^comparative-theologies\.com$ [NC]
+RewriteCond %{THE_REQUEST} !comparative-technologies\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/comparative-technologies/comparative-technologies.php [L,QSA,END]
+
+# --- Subdomain: zhgenyusophia-gramatke ---
+RewriteCond %{HTTP_HOST} ^zhgenyusophia-gramatke\.comparative-theologies\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/comparative-technologies/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^zhgenyusophia-gramatke\.comparative-theologies\.com$ [NC]
+RewriteCond %{THE_REQUEST} !zhgenyu-sophia-gramatke\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/comparative-technologies/zhgenyu-sophia-gramatke.php [L,QSA,END]
+
+# --- Subdomain: flavel-waseem ---
+RewriteCond %{HTTP_HOST} ^flavel-waseem\.comparative-theologies\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/comparative-technologies/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^flavel-waseem\.comparative-theologies\.com$ [NC]
+RewriteCond %{THE_REQUEST} !dr-flavel-waseem\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/comparative-technologies/dr-flavel-waseem.php [L,QSA,END]
+
+# --- Subdomain: noah-mavropoulos ---
+RewriteCond %{HTTP_HOST} ^noah-mavropoulos\.comparative-theologies\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/comparative-technologies/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^noah-mavropoulos\.comparative-theologies\.com$ [NC]
+RewriteCond %{THE_REQUEST} !noah-mavropoulos\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/comparative-technologies/noah-mavropoulos.php [L,QSA,END]
+
+# ==========================
+# Domain: iiid.site
+# ==========================
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^iiid\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/interdisciplinary-development/robots.txt [L,END]
+
+# --- Haupt-Redirect: alles (außer wenn bereits die PHP-Datei angefragt wurde) ---
+RewriteCond %{HTTP_HOST} ^iiid\.site$ [NC]
+RewriteCond %{THE_REQUEST} !interdisciplinary-development\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/interdisciplinary-development/interdisciplinary-development.php [L,QSA,END]
+
+# --- Subdomain: kwame-sakamoto ---
+RewriteCond %{HTTP_HOST} ^kwame-sakamoto\.iiid\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/interdisciplinary-development/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^kwame-sakamoto\.iiid\.site$ [NC]
+RewriteCond %{THE_REQUEST} !kwame-sakamoto\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/interdisciplinary-development/kwame-sakamoto.php [L,QSA,END]
+
+# --- Subdomain: hiroshi-novak ---
+RewriteCond %{HTTP_HOST} ^hiroshi-novak\.iiid\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/interdisciplinary-development/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^hiroshi-novak\.iiid\.site$ [NC]
+RewriteCond %{THE_REQUEST} !hiroshi-novak\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/interdisciplinary-development/hiroshi-novak.php [L,QSA,END]
+
+# --- Subdomain: eduardosecco-ngyuen ---
+RewriteCond %{HTTP_HOST} ^eduardosecco-ngyuen\.iiid\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/interdisciplinary-development/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^eduardosecco-ngyuen\.iiid\.site$ [NC]
+RewriteCond %{THE_REQUEST} !dr-eduardo-secco-ngyuen\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/interdisciplinary-development/dr-eduardo-secco-ngyuen.php [L,QSA,END]
+
+# ==========================
+# Domain: bioethics-evolution.site
+# ==========================
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^bioethics-evolution\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/bioethical-evolution/robots.txt [L,END]
+
+# --- Haupt-Redirect: alles (außer wenn bereits die PHP-Datei angefragt wurde) ---
+RewriteCond %{HTTP_HOST} ^bioethics-evolution\.site$ [NC]
+RewriteCond %{THE_REQUEST} !bioethical-evolution\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/bioethical-evolution/bioethical-evolution.php [L,QSA,END]
+
+# --- Subdomain: yael-priesemuth ---
+RewriteCond %{HTTP_HOST} ^yael-priesemuth\.bioethics-evolution\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/bioethical-evolution/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^yael-priesemuth\.bioethics-evolution\.site$ [NC]
+RewriteCond %{THE_REQUEST} !ms-yael-priesemuth\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/bioethical-evolution/ms-yael-priesemuth.php [L,QSA,END]
+
+# --- Subdomain: lamina-serano ---
+RewriteCond %{HTTP_HOST} ^lamina-serano\.bioethics-evolution\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/bioethical-evolution/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^lamina-serano\.bioethics-evolution\.site$ [NC]
+RewriteCond %{THE_REQUEST} !dr-lamina-serano\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/bioethical-evolution/dr-lamina-serano.php [L,QSA,END]
+
+# --- Subdomain: luciabecker-grohl ---
+RewriteCond %{HTTP_HOST} ^luciabecker-grohl\.bioethics-evolution\.site$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/bioethical-evolution/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^luciabecker-grohl\.bioethics-evolution\.site$ [NC]
+RewriteCond %{THE_REQUEST} !lucia-becker-grohl\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/bioethical-evolution/lucia-becker-grohl.php [L,QSA,END]
+
+# ==========================
+# Domain: planetary-quantum.com
+# ==========================
+# --- robots.txt: direkt ausliefern (keine Weiterleitung) ---
+RewriteCond %{HTTP_HOST} ^planetary-quantum\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/robots.txt [L,END]
+
+# --- Haupt-Redirect: alles (außer wenn bereits die PHP-Datei angefragt wurde) ---
+RewriteCond %{HTTP_HOST} ^planetary-quantum\.com$ [NC]
+RewriteCond %{THE_REQUEST} !planetary-quantum\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/planetary-quantum.php [L,QSA,END]
+
+# --- Subdomain: priyanka-mcleod ---
+RewriteCond %{HTTP_HOST} ^priyanka-mcleod\.planetary-quantum\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^priyanka-mcleod\.planetary-quantum\.com$ [NC]
+RewriteCond %{THE_REQUEST} !dr-priyanka-mcleod\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/dr-priyanka-mcleod.php [L,QSA,END]
+
+# --- Subdomain: eleni-demir ---
+RewriteCond %{HTTP_HOST} ^eleni-demir\.planetary-quantum\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^eleni-demir\.planetary-quantum\.com$ [NC]
+RewriteCond %{THE_REQUEST} !eleni-demir\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/eleni-demir.php [L,QSA,END]
+
+# --- Subdomain: zeynep-flaubert ---
+RewriteCond %{HTTP_HOST} ^zeynep-flaubert\.planetary-quantum\.com$ [NC]
+RewriteRule ^robots\.txt$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/robots.txt [L,END]
+RewriteCond %{HTTP_HOST} ^zeynep-flaubert\.planetary-quantum\.com$ [NC]
+RewriteCond %{THE_REQUEST} !zeynep-flaubert\.php [NC]
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^(.*)$ /TU_Berlin/llmscraper_honeypot_laravel/planetary-quantum/zeynep-flaubert.php [L,QSA,END]
+
+
+
+
+</IfModule>
